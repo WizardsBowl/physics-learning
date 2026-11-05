@@ -107,6 +107,10 @@ onBeforeUnmount(() => {
     </main>
 
     <footer class="app-footer">
+      <p class="app-footer__note">
+        <span class="app-footer__tag">AI 生成</span>
+        知识点、公式与例题仅供参考，请以教材为准。
+      </p>
       <p>Vue 3 · TypeScript · Vite ｜ 大学物理知识点持续整理中</p>
     </footer>
   </div>
@@ -321,6 +325,28 @@ onBeforeUnmount(() => {
 
 .app-footer p {
   margin: 0;
+}
+
+/* 提示行比版权行更靠上，多留一点间距 */
+.app-footer p.app-footer__note {
+  margin-bottom: 0.5rem;
+}
+
+.app-footer__note {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.78rem;
+}
+
+.app-footer__tag {
+  padding: 0.05rem 0.42rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  letter-spacing: 0.02em;
 }
 
 @media (max-width: 860px) {
