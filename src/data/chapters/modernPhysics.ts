@@ -12,10 +12,13 @@ export const modernPhysics: Chapter = {
       title: '狭义相对论',
       summary: '光速不变与相对性原理导致时间膨胀、长度收缩与质能关系。',
       formulas: [
-        { expression: 'γ = 1/√(1 − v²/c²)', note: '洛伦兹因子' },
-        { expression: 'Δt = γΔt₀，L = L₀/γ', note: '时间膨胀与长度收缩（Δt₀、L₀ 为固有量）' },
-        { expression: 'm = γm₀，E = mc²', note: '相对论质量与质能关系' },
-        { expression: 'E² = (pc)² + (m₀c²)²', note: '能量–动量关系' },
+        { latex: String.raw`\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}`, note: '洛伦兹因子' },
+        {
+          latex: String.raw`\Delta t = \gamma\Delta t_0,\quad L = \frac{L_0}{\gamma}`,
+          note: '时间膨胀与长度收缩（下标 0 表示固有量）',
+        },
+        { latex: String.raw`m = \gamma m_0,\quad E = mc^2`, note: '相对论质量与质能关系' },
+        { latex: String.raw`E^2 = (pc)^2 + (m_0c^2)^2`, note: '能量–动量关系' },
       ],
       keyPoints: [
         '所有惯性系中光速都等于 c，与光源和观察者的运动无关。',
@@ -30,9 +33,12 @@ export const modernPhysics: Chapter = {
       title: '光的量子性',
       summary: '光电效应与康普顿散射表明光具有粒子性，能量以量子形式交换。',
       formulas: [
-        { expression: 'E = hν，p = h/λ', note: '光子的能量与动量' },
-        { expression: 'hν = W + Ek,max', note: '爱因斯坦光电方程' },
-        { expression: 'λ′ − λ = (h/m₀c)(1 − cosθ)', note: '康普顿散射' },
+        { latex: String.raw`E = h\nu,\quad p = \frac{h}{\lambda}`, note: '光子的能量与动量' },
+        { latex: String.raw`h\nu = W + E_{k,\max}`, note: '爱因斯坦光电方程（W 为逸出功）' },
+        {
+          latex: String.raw`\lambda' - \lambda = \frac{h}{m_0c}(1 - \cos\theta)`,
+          note: '康普顿散射',
+        },
       ],
       keyPoints: [
         '存在红限频率，低于红限频率的光无论强度多大都不能产生光电子。',
@@ -47,10 +53,13 @@ export const modernPhysics: Chapter = {
       title: '量子力学基础',
       summary: '微观粒子具有波粒二象性，状态用波函数描述，能量常取分立值。',
       formulas: [
-        { expression: 'λ = h/p', note: '德布罗意关系' },
-        { expression: 'Δx Δp ≥ ħ/2', note: '海森堡不确定关系' },
-        { expression: 'Eₙ = n²h²/(8ma²)', note: '一维无限深势阱能级' },
-        { expression: '−ħ²/(2m) ∇²ψ + Uψ = Eψ', note: '定态薛定谔方程' },
+        { latex: String.raw`\lambda = \frac{h}{p}`, note: '德布罗意关系' },
+        { latex: String.raw`\Delta x\,\Delta p \ge \frac{\hbar}{2}`, note: '海森堡不确定关系' },
+        { latex: String.raw`E_n = \frac{n^2h^2}{8ma^2}`, note: '一维无限深势阱能级' },
+        {
+          latex: String.raw`-\frac{\hbar^2}{2m}\nabla^2\psi + U\psi = E\psi`,
+          note: '定态薛定谔方程',
+        },
       ],
       keyPoints: [
         '波函数的模方 |ψ|² 表示粒子出现的概率密度，需满足归一化条件。',
@@ -65,9 +74,15 @@ export const modernPhysics: Chapter = {
       title: '原子结构与光谱',
       summary: '玻尔模型成功解释了氢原子光谱，量子力学给出更精确的图像。',
       formulas: [
-        { expression: 'Eₙ = −13.6 eV/n²', note: '氢原子能级' },
-        { expression: '1/λ = R(1/n₁² − 1/n₂²)', note: '里德伯公式' },
-        { expression: 'rₙ = n²r₁，r₁ ≈ 0.053 nm', note: '玻尔半径' },
+        { latex: String.raw`E_n = -\frac{13.6\ \mathrm{eV}}{n^2}`, note: '氢原子能级' },
+        {
+          latex: String.raw`\frac{1}{\lambda} = R\left(\frac{1}{n_1^2} - \frac{1}{n_2^2}\right)`,
+          note: '里德伯公式',
+        },
+        {
+          latex: String.raw`r_n = n^2 r_1,\quad r_1 \approx 0.053\ \mathrm{nm}`,
+          note: '玻尔半径',
+        },
       ],
       keyPoints: [
         '玻尔模型的三个假设：定态、频率条件与角动量量子化。',

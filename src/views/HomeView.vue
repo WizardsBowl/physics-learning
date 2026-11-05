@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import ChapterCard from '../components/ChapterCard.vue'
 import { chapterCount, chapters, knowledgePointCount } from '../data/chapters'
 import type { Chapter } from '../types/physics'
+import { latexToSearchText } from '../utils/latex'
 
 const keyword = ref('')
 
@@ -15,7 +16,10 @@ function matches(chapter: Chapter, query: string): boolean {
       point.title,
       point.summary,
       ...point.keyPoints,
-      ...(point.formulas?.map((formula) => formula.expression) ?? []),
+      ...(point.formulas?.flatMap((formula) => [
+        latexToSearchText(formula.latex),
+        formula.note ?? '',
+      ]) ?? []),
     ]),
   ]
   return haystack.some((item) => item.toLowerCase().includes(query))

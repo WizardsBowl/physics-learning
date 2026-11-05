@@ -12,10 +12,16 @@ export const oscillations: Chapter = {
       title: '简谐振动',
       summary: '回复力与位移成正比反向时的运动，可用旋转矢量与相位描述。',
       formulas: [
-        { expression: 'x = A cos(ωt + φ)', note: '简谐振动方程' },
-        { expression: 'ω = √(k/m)，T = 2π√(m/k)', note: '弹簧振子' },
-        { expression: 'T = 2π√(l/g)', note: '单摆（小角度）' },
-        { expression: 'E = ½kA² = ½mv² + ½kx²', note: '振动总能量守恒' },
+        { latex: String.raw`x = A\cos(\omega t + \varphi)`, note: '简谐振动方程' },
+        {
+          latex: String.raw`\omega = \sqrt{\frac{k}{m}},\quad T = 2\pi\sqrt{\frac{m}{k}}`,
+          note: '弹簧振子',
+        },
+        { latex: String.raw`T = 2\pi\sqrt{\frac{l}{g}}`, note: '单摆（小角度）' },
+        {
+          latex: String.raw`E = \frac{1}{2}kA^2 = \frac{1}{2}mv^2 + \frac{1}{2}kx^2`,
+          note: '振动总能量守恒',
+        },
       ],
       keyPoints: [
         'A、ω、φ 是简谐振动的三个特征量，初相 φ 由初始条件决定。',
@@ -30,9 +36,12 @@ export const oscillations: Chapter = {
       title: '振动的合成与阻尼',
       summary: '同方向同频率振动合成仍为简谐振动；频率相近时出现拍现象。',
       formulas: [
-        { expression: 'A = √(A₁² + A₂² + 2A₁A₂cosΔφ)', note: '同方向同频率合成' },
-        { expression: 'ν拍 = |ν₁ − ν₂|', note: '拍频' },
-        { expression: 'x = A₀e^(−βt) cos(ω′t + φ)', note: '阻尼振动' },
+        {
+          latex: String.raw`A = \sqrt{A_1^2 + A_2^2 + 2A_1A_2\cos\Delta\varphi}`,
+          note: '同方向同频率振动合成',
+        },
+        { latex: String.raw`\nu_{\mathrm{beat}} = |\nu_1 - \nu_2|`, note: '拍频' },
+        { latex: String.raw`x = A_0 e^{-\beta t}\cos(\omega' t + \varphi)`, note: '阻尼振动' },
       ],
       keyPoints: [
         'Δφ = 2kπ 时振动加强，Δφ = (2k+1)π 时振动减弱。',
@@ -47,9 +56,12 @@ export const oscillations: Chapter = {
       title: '机械波',
       summary: '振动状态在弹性介质中传播，形成波长、频率、波速的关系。',
       formulas: [
-        { expression: 'y = A cos[ω(t − x/u)]', note: '沿 x 正方向传播的平面简谐波' },
-        { expression: 'u = λν = λ/T', note: '波速、波长与频率的关系' },
-        { expression: 'Δφ = 2πΔx/λ', note: '同一时刻两点的相位差' },
+        {
+          latex: String.raw`y = A\cos\left[\omega\left(t - \frac{x}{u}\right)\right]`,
+          note: '沿 x 正方向传播的平面简谐波',
+        },
+        { latex: String.raw`u = \lambda\nu = \frac{\lambda}{T}`, note: '波速、波长与频率的关系' },
+        { latex: String.raw`\Delta\varphi = \frac{2\pi\Delta x}{\lambda}`, note: '同一时刻两点的相位差' },
       ],
       keyPoints: [
         '波是相位（振动状态）的传播，介质质点并不随波迁移。',
@@ -64,9 +76,18 @@ export const oscillations: Chapter = {
       title: '波的干涉与驻波',
       summary: '相干波叠加产生稳定的加强或减弱分布；驻波是两列反向行波的合成。',
       formulas: [
-        { expression: 'Δφ = φ₂ − φ₁ − 2π(r₂ − r₁)/λ', note: '两相干波在 P 点的相位差' },
-        { expression: 'δ = kλ 加强，δ = (2k+1)λ/2 减弱', note: '波程差判据（初相相同）' },
-        { expression: 'y = 2A cos(2πx/λ) cos(ωt)', note: '驻波方程' },
+        {
+          latex: String.raw`\Delta\varphi = \varphi_2 - \varphi_1 - \frac{2\pi(r_2 - r_1)}{\lambda}`,
+          note: '两相干波在 P 点的相位差',
+        },
+        {
+          latex: String.raw`\delta = k\lambda,\quad \delta = (2k+1)\frac{\lambda}{2}`,
+          note: '波程差判据：前者加强，后者减弱（初相相同）',
+        },
+        {
+          latex: String.raw`y = 2A\cos\frac{2\pi x}{\lambda}\cos\omega t`,
+          note: '驻波方程',
+        },
       ],
       keyPoints: [
         '相干条件：频率相同、振动方向相同、相位差恒定。',
@@ -81,7 +102,10 @@ export const oscillations: Chapter = {
       title: '多普勒效应',
       summary: '波源与观察者相对运动时，接收到的频率发生变化。',
       formulas: [
-        { expression: 'ν′ = ν (u ± v₀)/(u ∓ vₛ)', note: '观察者、波源相互靠近时分别取使 ν′ 增大的符号' },
+        {
+          latex: String.raw`\nu' = \nu\,\frac{u \pm v_0}{u \mp v_s}`,
+          note: '靠近时取使 ν′ 增大的符号（v₀ 观察者、vₛ 波源）',
+        },
       ],
       keyPoints: [
         '波源靠近观察者时接收频率升高，远离时降低。',

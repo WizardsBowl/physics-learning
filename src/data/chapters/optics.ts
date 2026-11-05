@@ -12,10 +12,19 @@ export const optics: Chapter = {
       title: '光的干涉',
       summary: '相干光叠加形成稳定的明暗条纹，光程差决定加强或减弱。',
       formulas: [
-        { expression: 'δ = n r₂ − n r₁（光程差）', note: '光程 = 几何路程 × 折射率' },
-        { expression: 'δ = kλ 明纹，δ = (2k+1)λ/2 暗纹', note: '干涉判据' },
-        { expression: 'Δy = Dλ/d', note: '双缝干涉相邻明纹间距' },
-        { expression: 'δ = 2nd cos r + λ/2', note: '薄膜干涉（含反射半波损失）' },
+        {
+          latex: String.raw`\delta = n_2 r_2 - n_1 r_1`,
+          note: '光程差（光程 = 几何路程 × 折射率）',
+        },
+        {
+          latex: String.raw`\delta = k\lambda,\quad \delta = (2k+1)\frac{\lambda}{2}`,
+          note: '前者为明纹，后者为暗纹',
+        },
+        { latex: String.raw`\Delta y = \frac{D\lambda}{d}`, note: '双缝干涉相邻明纹间距' },
+        {
+          latex: String.raw`\delta = 2nd\cos r + \frac{\lambda}{2}`,
+          note: '薄膜干涉（含反射半波损失）',
+        },
       ],
       keyPoints: [
         '相干光可由分波阵面（杨氏双缝）或分振幅（薄膜）获得。',
@@ -30,10 +39,10 @@ export const optics: Chapter = {
       title: '光的衍射',
       summary: '光遇到与波长相当的障碍物时偏离直线传播，单缝与光栅是最基本的模型。',
       formulas: [
-        { expression: 'a sinθ = kλ', note: '单缝夫琅禾费衍射暗纹条件' },
-        { expression: 'd sinθ = kλ', note: '光栅主极大条件（光栅方程）' },
-        { expression: 'θ₁ ≈ 1.22λ/D', note: '圆孔衍射艾里斑半角宽度' },
-        { expression: 'R = λ/Δλ = kN', note: '光栅分辨本领' },
+        { latex: String.raw`a\sin\theta = k\lambda`, note: '单缝夫琅禾费衍射暗纹条件' },
+        { latex: String.raw`d\sin\theta = k\lambda`, note: '光栅方程（主极大条件）' },
+        { latex: String.raw`\theta_1 \approx 1.22\frac{\lambda}{D}`, note: '圆孔衍射艾里斑半角宽度' },
+        { latex: String.raw`R = \frac{\lambda}{\Delta\lambda} = kN`, note: '光栅分辨本领' },
       ],
       keyPoints: [
         '菲涅耳衍射（近场）与夫琅禾费衍射（远场）的区别在于光源与观察屏是否在有限距离。',
@@ -48,9 +57,9 @@ export const optics: Chapter = {
       title: '光的偏振',
       summary: '光是横波，偏振现象证明电场振动方向垂直于传播方向。',
       formulas: [
-        { expression: 'I = I₀ cos²α', note: '马吕斯定律' },
-        { expression: 'tan i₀ = n₂/n₁', note: '布儒斯特定律' },
-        { expression: 'I = ½I₀', note: '自然光通过理想偏振片后的强度' },
+        { latex: String.raw`I = I_0\cos^2\alpha`, note: '马吕斯定律' },
+        { latex: String.raw`\tan i_0 = \frac{n_2}{n_1}`, note: '布儒斯特定律' },
+        { latex: String.raw`I = \frac{1}{2}I_0`, note: '自然光通过理想偏振片后的强度' },
       ],
       keyPoints: [
         '自然光、线偏振光、部分偏振光与圆偏振光的区别在于电场振动方向的分布。',
@@ -65,9 +74,12 @@ export const optics: Chapter = {
       title: '几何光学',
       summary: '在波长远小于系统尺度时，用光线模型处理反射、折射与成像。',
       formulas: [
-        { expression: 'n₁ sin i = n₂ sin r', note: '折射定律' },
-        { expression: '1/u + 1/v = 1/f', note: '薄透镜成像公式（符号约定按教材）' },
-        { expression: 'n = c/v', note: '介质折射率' },
+        { latex: String.raw`n_1\sin i = n_2\sin r`, note: '折射定律' },
+        {
+          latex: String.raw`\frac{1}{u} + \frac{1}{v} = \frac{1}{f}`,
+          note: '薄透镜成像公式（符号约定按教材）',
+        },
+        { latex: String.raw`n = \frac{c}{v}`, note: '介质折射率' },
       ],
       keyPoints: [
         '全反射条件：光从光密介质射向光疏介质且入射角大于临界角 sinC = n₂/n₁。',

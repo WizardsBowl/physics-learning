@@ -1,13 +1,18 @@
 /**
- * 公式：`expression` 使用纯文本 + Unicode 符号书写，
- * 便于全文检索、直接复制到笔记软件，也不依赖任何公式渲染库。
+ * 公式：`latex` 存放**不带 `$` 定界符**的 LaTeX 源码，由 KaTeX 渲染为行间公式。
+ *
+ * 建议使用 `String.raw` 书写，避免反斜杠被 JS 字符串转义：
+ * `latex: String.raw`E = \frac{1}{2}mv^2``
+ *
+ * 中文说明请写在 `note` 中，不要写进 LaTeX（KaTeX 不含中文字形）。
  */
 export interface Formula {
-  /** 公式主体，例如 "F = ma" */
-  expression: string
+  /** LaTeX 源码，例如 String.raw`v = \frac{dr}{dt}` */
+  latex: string
   /** 公式名称、适用条件或符号说明 */
   note?: string
 }
+
 
 /** 单个知识点 */
 export interface KnowledgePoint {

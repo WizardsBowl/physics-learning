@@ -12,10 +12,10 @@ export const thermal: Chapter = {
       title: '气体动理论',
       summary: '把宏观压强、温度与分子平均平动动能联系起来。',
       formulas: [
-        { expression: 'pV = νRT = (m/M)RT', note: '理想气体状态方程' },
-        { expression: 'p = (2/3)n ε̄k', note: '压强的微观本质' },
-        { expression: 'ε̄k = (3/2)kT', note: '分子平均平动动能' },
-        { expression: 'v_rms = √(3RT/M)', note: '方均根速率' },
+        { latex: String.raw`pV = \nu RT = \frac{m}{M}RT`, note: '理想气体状态方程' },
+        { latex: String.raw`p = \frac{2}{3}n\bar{\varepsilon}_k`, note: '压强的微观本质' },
+        { latex: String.raw`\bar{\varepsilon}_k = \frac{3}{2}kT`, note: '分子平均平动动能' },
+        { latex: String.raw`v_{\mathrm{rms}} = \sqrt{\frac{3RT}{M}}`, note: '方均根速率' },
       ],
       keyPoints: [
         '温度是分子平均平动动能的量度，是大量分子热运动的统计结果。',
@@ -30,10 +30,13 @@ export const thermal: Chapter = {
       title: '热力学第一定律',
       summary: '能量守恒在热现象中的表述：Q = ΔU + W（W 为系统对外做功）。',
       formulas: [
-        { expression: 'Q = ΔU + W', note: '本库采用“W 为系统对外做功”的符号约定' },
-        { expression: 'W = ∫p dV', note: '准静态过程系统对外做功' },
-        { expression: 'ΔU = ν Cv ΔT', note: '理想气体内能只与温度有关' },
-        { expression: 'Cv = (i/2)R，Cp = Cv + R', note: '摩尔热容' },
+        { latex: String.raw`Q = \Delta U + W`, note: '本库采用“W 为系统对外做功”的符号约定' },
+        { latex: String.raw`W = \int p\,dV`, note: '准静态过程系统对外做功' },
+        { latex: String.raw`\Delta U = \nu C_V \Delta T`, note: '理想气体内能只与温度有关' },
+        {
+          latex: String.raw`C_V = \frac{i}{2}R,\quad C_p = C_V + R`,
+          note: '定体摩尔热容与定压摩尔热容',
+        },
       ],
       keyPoints: [
         '内能是状态量，功和热量是过程量，二者都与路径有关。',
@@ -48,9 +51,15 @@ export const thermal: Chapter = {
       title: '循环过程与热机效率',
       summary: '热机把部分吸热转化为功，效率受高温热源与低温热源温度限制。',
       formulas: [
-        { expression: 'η = W净/Q吸 = 1 − |Q放|/Q吸', note: '热机效率' },
-        { expression: 'η卡诺 = 1 − T₂/T₁', note: '卡诺循环（T 为热力学温度）' },
-        { expression: 'e = Q₂/W净 = T₂/(T₁ − T₂)', note: '卡诺制冷系数' },
+        {
+          latex: String.raw`\eta = \frac{W_{\mathrm{net}}}{Q_{\mathrm{in}}} = 1 - \frac{|Q_{\mathrm{out}}|}{Q_{\mathrm{in}}}`,
+          note: '热机效率',
+        },
+        { latex: String.raw`\eta_{\mathrm{Carnot}} = 1 - \frac{T_2}{T_1}`, note: '卡诺循环（T 为热力学温度）' },
+        {
+          latex: String.raw`e = \frac{Q_2}{W_{\mathrm{net}}} = \frac{T_2}{T_1 - T_2}`,
+          note: '卡诺制冷系数',
+        },
       ],
       keyPoints: [
         'p–V 图中循环曲线所围面积等于净功，顺时针为正循环（热机）。',
@@ -65,9 +74,9 @@ export const thermal: Chapter = {
       title: '热力学第二定律与熵',
       summary: '自发过程具有方向性，熵是系统无序度的量度，孤立系统熵不减少。',
       formulas: [
-        { expression: 'dS = dQ可逆/T', note: '熵的定义' },
-        { expression: 'ΔS = νR ln(V₂/V₁)', note: '理想气体等温过程的熵变' },
-        { expression: 'ΔS孤立系 ≥ 0', note: '熵增原理' },
+        { latex: String.raw`dS = \frac{dQ_{\mathrm{rev}}}{T}`, note: '熵的定义（可逆过程）' },
+        { latex: String.raw`\Delta S = \nu R\ln\frac{V_2}{V_1}`, note: '理想气体等温过程' },
+        { latex: String.raw`\Delta S_{\mathrm{iso}} \ge 0`, note: '孤立系统熵增原理' },
       ],
       keyPoints: [
         '第二定律的两种经典表述：开尔文表述（不可能制成单一热源热机）与克劳修斯表述（热量不能自发地从低温传向高温）。',

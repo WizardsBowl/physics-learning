@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import KaTeXFormula from './KatexFormula.vue'
 import type { KnowledgePoint } from '../types/physics'
 
 const props = defineProps<{
@@ -30,8 +31,8 @@ const orderText = computed(() => String(props.index + 1).padStart(2, '0'))
     <section v-if="point.formulas?.length" class="point-card__block">
       <h4 class="point-card__label">核心公式</h4>
       <ul class="formula-list">
-        <li v-for="formula in point.formulas" :key="formula.expression" class="formula-item">
-          <code class="formula">{{ formula.expression }}</code>
+        <li v-for="formula in point.formulas" :key="formula.latex" class="formula-item">
+          <KaTeXFormula :latex="formula.latex" />
           <span v-if="formula.note" class="formula-note">{{ formula.note }}</span>
         </li>
       </ul>
@@ -123,26 +124,18 @@ const orderText = computed(() => String(props.index + 1).padStart(2, '0'))
 }
 
 .formula-item {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.25rem 0.7rem;
-  padding: 0.5rem 0.75rem;
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.6rem 0.9rem;
   border-left: 3px solid var(--accent, var(--brand));
   border-radius: 0 8px 8px 0;
   background: var(--surface-soft);
 }
 
-.formula {
-  overflow-x: auto;
-  color: var(--text);
-  font-size: 1rem;
-  white-space: nowrap;
-}
-
 .formula-note {
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
+  line-height: 1.5;
 }
 
 .key-list {
