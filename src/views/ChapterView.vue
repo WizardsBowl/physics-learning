@@ -150,6 +150,8 @@ const accentStyle = computed(() => ({ '--accent': chapter.value?.accent ?? 'var(
   top: 5.5rem;
   display: grid;
   gap: 0.15rem;
+  max-height: calc(100vh - 7rem);
+  overflow-y: auto;
   padding: 0.9rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
