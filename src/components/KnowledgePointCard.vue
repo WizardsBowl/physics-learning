@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import KaTeXFormula from './KatexFormula.vue'
+import LatexText from './LatexText.vue'
 import type { ExampleDifficulty, KnowledgePoint } from '../types/physics'
 
 const props = defineProps<{
@@ -77,12 +78,12 @@ const difficultyLabels: Record<ExampleDifficulty, string> = {
               </span>
             </summary>
             <div class="example__body">
-              <p class="example__question">{{ example.question }}</p>
+              <p class="example__question"><LatexText :text="example.question" /></p>
               <p class="example__line">
-                <span class="example__tag">答案</span>{{ example.answer }}
+                <span class="example__tag">答案</span><LatexText :text="example.answer" />
               </p>
               <p class="example__line">
-                <span class="example__tag">解析</span>{{ example.explanation }}
+                <span class="example__tag">解析</span><LatexText :text="example.explanation" />
               </p>
             </div>
           </details>

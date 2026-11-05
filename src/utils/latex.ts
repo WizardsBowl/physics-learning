@@ -43,3 +43,12 @@ export function latexToSearchText(latex: string): string {
     .trim()
     .toLowerCase()
 }
+
+/**
+ * 处理含行内公式（`$...$`）的正文：公式部分转为可检索文本，其余原样保留。
+ * 仅用于首页搜索匹配，不用于展示。
+ */
+export function latexTextToSearchText(text: string): string {
+  return text.replace(/\$([^$\n]+)\$/g, (_, latex: string) => ` ${latexToSearchText(latex)} `)
+}
+

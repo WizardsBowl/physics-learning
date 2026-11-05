@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import ChapterCard from '../components/ChapterCard.vue'
 import { chapterCount, chapters, knowledgePointCount } from '../data/chapters'
 import type { Chapter } from '../types/physics'
-import { latexToSearchText } from '../utils/latex'
+import { latexTextToSearchText, latexToSearchText } from '../utils/latex'
 
 const keyword = ref('')
 
@@ -21,9 +21,9 @@ function matches(chapter: Chapter, query: string): boolean {
         formula.note ?? '',
       ]) ?? []),
       ...point.examples.flatMap((example) => [
-        example.question,
-        example.answer,
-        example.explanation,
+        latexTextToSearchText(example.question),
+        latexTextToSearchText(example.answer),
+        latexTextToSearchText(example.explanation),
       ]),
     ]),
   ]

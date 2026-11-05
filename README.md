@@ -51,8 +51,9 @@ physics-learning/
 │   │   └── modernPhysics.ts    # 近代物理
 │   ├── components/
 │   │   ├── ChapterCard.vue     # 首页章节卡片
-│   │   ├── KnowledgePointCard.vue # 知识点卡片（KaTeX 公式 + 要点）
-│   │   └── KatexFormula.vue    # KaTeX 渲染组件（按需加载 katex 与样式）
+│   │   ├── KnowledgePointCard.vue # 知识点卡片（KaTeX 公式 + 要点 + 例题）
+│   │   ├── KatexFormula.vue    # 行间公式渲染组件（按需加载 katex 与样式）
+│   │   └── LatexText.vue       # 正文渲染：把 $...$ / $$...$$ 交给 KaTeX
 │   ├── utils/latex.ts          # LaTeX → 可检索纯文本（首页搜索用）
 │   └── views/
 │       ├── HomeView.vue        # 总览与检索
@@ -91,22 +92,26 @@ physics-learning/
 ## 例题数据结构
 
 每个知识点都带一个 `examples` 数组（类型见 `src/types/physics.ts` 的 `Example` / `ExampleDifficulty`）。
-尚未编写例题时保持空数组 `[]`，卡片会自动隐藏「典型例题」区块。字段示例如下（内容待补充）：
+尚未编写例题时保持空数组 `[]`，卡片会自动隐藏「典型例题」区块。字段示例如下：
 
 ```ts
 examples: [
   {
-    question: '题干：……',
-    answer: '答案：……',
-    explanation: '解析：……',
-    difficulty: 2,   // 1 入门 · 2 基础 · 3 中等 · 4 较难 · 5 挑战
+    question: '半径 $R = 0.10\\ \\mathrm{m}$ 的金属球带电荷 $Q = 3.0\\times10^{-8}\\ \\mathrm{C}$，求球表面处的场强。',
+    answer: '$E = \\frac{Q}{4\\pi\\varepsilon_0R^{2}} \\approx 2.7\\times10^{4}\\ \\mathrm{V/m}$。',
+    explanation: '静电平衡时电荷均匀分布在球面上，取半径 $r > R$ 的同心球面作高斯面即可。',
+    difficulty: 1,   // 1 入门 · 2 基础 · 3 中等 · 4 较难 · 5 挑战
   },
 ],
 ```
 
-- 卡片中例题默认折叠，点击「例 N」展开题目、答案与解析；难度用 5 个圆点呈现，并在无障碍标签中给出文字等级。
-- `question` / `answer` / `explanation` 目前为纯文本，字符串内的 `\n` 会保留为换行。
-- 例题正文中的公式排版（行内 KaTeX）尚未支持，暂可用 Unicode 纯文本书写；后续可扩展为 `$...$` 行内公式。
+- 卡片中例题默认折叠（`<details>` 不带 `open`），点击「例 N」展开题目、答案与解析；难度用 5 个圆点呈现，并在无障碍标签中给出文字等级。
+- `question` / `answer` / `explanation` 都支持 KaTeX：用 `$...$` 写行内公式、`$$...$$` 写行间公式，由 `src/components/LatexText.vue` 渲染。
+- 普通字符串里的反斜杠要双写（`'$\\frac{1}{2}mv^{2}$'`），字符串内的 `\n` 会保留为换行；
+  不涉及转义的长正文也可以改成 `String.raw`，但此时 `\n` 不再生效，需要换行就用普通字符串。
+- 正文中避免出现单独的 `$`（如货币符号），否则会被当作公式定界符。
+- 普通字符串里不能直接写撇号（如 `U'`），它会提前结束字符串；请写成 `$U^{\\prime}$`。
+- `npm run check:latex` 会同时校验 `formulas[].latex` 与例题正文里的 `$...$` / `$$...$$`。
 
 ## 许可
 

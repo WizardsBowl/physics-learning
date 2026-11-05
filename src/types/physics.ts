@@ -20,15 +20,16 @@ export type ExampleDifficulty = 1 | 2 | 3 | 4 | 5
 /**
  * 例题：题目、答案、解析与难度等级。
  *
- * 正文暂为纯文本，需要换行时在字符串里写 `\n`（渲染时保留换行）。
- * 公式排版目前只覆盖 `KnowledgePoint.formulas`，例题中的公式待后续扩展。
+ * 正文支持行内公式：用 `$...$` 包裹 LaTeX（如 `$E=mc^{2}$`），由 KaTeX 排版；
+ * 写成普通字符串时反斜杠需要转义（`\\frac`），也可以用 `String.raw` 书写。
+ * 需要换行时在普通字符串里写 `\\n`（渲染时保留换行）。
  */
 export interface Example {
-  /** 题干 */
+  /** 题干，可用 $...$ 行内公式 */
   question: string
-  /** 标准答案（结论式或数值均可） */
+  /** 标准答案（结论式或数值均可），可用 $...$ 行内公式 */
   answer: string
-  /** 解题思路与关键步骤 */
+  /** 解题思路与关键步骤，可用 $...$ 行内公式 */
   explanation: string
   /** 难度：1 最简单 · 5 最难 */
   difficulty: ExampleDifficulty
