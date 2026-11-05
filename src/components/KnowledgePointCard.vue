@@ -102,6 +102,13 @@ const difficultyLabels: Record<ExampleDifficulty, string> = {
   scroll-margin-top: 5.5rem;
 }
 
+/* 窄屏时导航栏换成两行（品牌行 + 章节导航行），锚点需要更大的顶部留白 */
+@media (max-width: 720px) {
+  .point-card {
+    scroll-margin-top: 7.25rem;
+  }
+}
+
 .point-card__head {
   display: flex;
   align-items: center;

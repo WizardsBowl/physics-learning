@@ -1,6 +1,51 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import { chapters } from './data/chapters'
+import { computed, onBeforeUnmount, ref, watch } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { chapters, findChapter } from './data/chapters'
+
+const route = useRoute()
+
+/** 当前章节：只有章节页才在导航栏显示「本页目录」按钮 */
+const activeChapter = computed(() =>
+  findChapter(typeof route.params.id === 'string' ? route.params.id : ''),
+)
+const tocPoints = computed(() => activeChapter.value?.points ?? [])
+
+const tocOpen = ref(false)
+const tocMenu = ref<HTMLDivElement | null>(null)
+const tocButton = ref<HTMLButtonElement | null>(null)
+
+function closeToc() {
+  tocOpen.value = false
+}
+
+function handleOutsidePointerDown(event: PointerEvent) {
+  if (!tocMenu.value?.contains(event.target as Node)) closeToc()
+}
+
+function handleEscape(event: KeyboardEvent) {
+  if (event.key !== 'Escape') return
+  closeToc()
+  tocButton.value?.focus()
+}
+
+watch(tocOpen, (open) => {
+  if (open) {
+    document.addEventListener('pointerdown', handleOutsidePointerDown)
+    document.addEventListener('keydown', handleEscape)
+    return
+  }
+  document.removeEventListener('pointerdown', handleOutsidePointerDown)
+  document.removeEventListener('keydown', handleEscape)
+})
+
+// 切换章节或返回总览时收起下拉
+watch(() => route.fullPath, closeToc)
+
+onBeforeUnmount(() => {
+  document.removeEventListener('pointerdown', handleOutsidePointerDown)
+  document.removeEventListener('keydown', handleEscape)
+})
 </script>
 
 <template>
@@ -13,6 +58,36 @@ import { chapters } from './data/chapters'
           <small>Physics Learning Notes</small>
         </span>
       </RouterLink>
+
+      <div v-if="activeChapter" ref="tocMenu" class="toc-menu">
+        <button
+          ref="tocButton"
+          type="button"
+          class="toc-toggle"
+          aria-controls="chapter-toc-panel"
+          :aria-expanded="tocOpen"
+          @click="tocOpen = !tocOpen"
+        >
+          本页目录
+          <span class="toc-toggle__chevron" aria-hidden="true">▾</span>
+        </button>
+
+        <nav
+          v-show="tocOpen"
+          id="chapter-toc-panel"
+          class="toc-panel"
+          :aria-label="`${activeChapter.title} · 本页目录`"
+        >
+          <ul class="toc-panel__list">
+            <li v-for="(point, index) in tocPoints" :key="point.id">
+              <a class="toc-panel__link" :href="`#${point.id}`" @click="closeToc">
+                <span class="toc-panel__no">{{ String(index + 1).padStart(2, '0') }}</span>
+                {{ point.title }}
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
       <nav class="app-nav" aria-label="章节导航">
         <RouterLink class="nav-link" to="/">总览</RouterLink>
@@ -130,6 +205,104 @@ import { chapters } from './data/chapters'
   color: #fff;
 }
 
+/* ---------- 移动端「本页目录」：挂在导航栏上的下拉菜单（仅章节页渲染） ---------- */
+.toc-menu {
+  position: relative;
+  display: none;
+  margin-left: auto;
+}
+
+.toc-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.toc-toggle:hover,
+.toc-toggle[aria-expanded='true'] {
+  border-color: var(--brand);
+  color: var(--brand);
+}
+
+.toc-toggle:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+.toc-toggle__chevron {
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.toc-toggle[aria-expanded='true'] .toc-toggle__chevron {
+  transform: rotate(180deg);
+}
+
+.toc-panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 2;
+  width: min(17rem, calc(100vw - 2rem));
+  max-height: min(60vh, 22rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 18px 40px rgb(15 23 42 / 16%);
+}
+
+.toc-panel__list {
+  display: grid;
+  gap: 0.1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toc-panel__link {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+  color: var(--text-soft);
+  font-size: 0.86rem;
+  line-height: 1.4;
+  text-decoration: none;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.toc-panel__link:hover {
+  background: var(--surface-soft);
+  color: var(--brand);
+}
+
+.toc-panel__link:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: -2px;
+}
+
+.toc-panel__no {
+  flex: none;
+  color: var(--muted);
+  font-family: var(--font-math);
+  font-size: 0.76rem;
+}
+
 .app-main {
   flex: 1;
   width: 100%;
@@ -148,6 +321,17 @@ import { chapters } from './data/chapters'
 
 .app-footer p {
   margin: 0;
+}
+
+@media (max-width: 860px) {
+  /* 与章节页目录的断点保持一致：窄屏改用导航栏下拉 */
+  .toc-menu {
+    display: block;
+  }
+
+  .app-nav {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 720px) {

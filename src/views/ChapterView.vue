@@ -270,24 +270,9 @@ const accentStyle = computed(() => ({ '--accent': chapter.value?.accent ?? 'var(
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* 移动端「本页目录」改为导航栏中的下拉菜单，见 App.vue 的 .toc-menu */
   .chapter__toc {
-    position: static;
-    display: flex;
-    gap: 0.35rem;
-    overflow-x: auto;
-    padding: 0.6rem;
-  }
-
-  .chapter__toc-title {
     display: none;
-  }
-
-  .chapter__toc-link {
-    flex: none;
-    padding: 0.25rem 0.6rem;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    white-space: nowrap;
   }
 }
 </style>

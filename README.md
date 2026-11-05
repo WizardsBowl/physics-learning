@@ -1,7 +1,8 @@
 # 大学物理知识库（physics-learning）
 
 使用 **Vue 3 + TypeScript + Vite** 构建的大学物理知识点整理与复习站点。
-按章节沉淀核心概念、公式与易错点，支持关键词检索、章节导航与公式速查。
+按章节沉淀核心概念、公式与易错点，支持关键词检索、章节导航与公式速查；
+章节页桌面端使用侧边目录，窄屏时目录收进导航栏的「本页目录」下拉菜单。
 
 ## 技术栈
 
@@ -36,7 +37,7 @@ physics-learning/
 │   └── favicon.svg
 ├── src/
 │   ├── main.ts                 # 应用入口，注册路由
-│   ├── App.vue                 # 全局布局：顶部导航 + 主内容 + 页脚
+│   ├── App.vue                 # 全局布局：顶部导航（含移动端目录下拉）+ 主内容 + 页脚
 │   ├── style.css               # 设计变量、基础样式、深色模式
 │   ├── router/index.ts         # 路由表与页面标题同步
 │   ├── types/physics.ts        # Chapter / KnowledgePoint / Formula 类型
@@ -55,7 +56,7 @@ physics-learning/
 │   ├── utils/latex.ts          # LaTeX → 可检索纯文本（首页搜索用）
 │   └── views/
 │       ├── HomeView.vue        # 总览与检索
-│       ├── ChapterView.vue     # 章节详情（目录 + 知识点）
+│       ├── ChapterView.vue     # 章节详情（桌面侧边目录 + 知识点）
 │       └── NotFoundView.vue    # 404
 ├── scripts/
 │   └── check-latex.mjs         # 批量校验 LaTeX 公式语法
