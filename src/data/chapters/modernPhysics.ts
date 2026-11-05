@@ -26,6 +26,7 @@ export const modernPhysics: Chapter = {
         '固有时间最短、固有长度最长，运动参考系测得的时间变长、长度变短。',
         '低速条件下洛伦兹变换退化为伽利略变换，相对论效应可忽略。',
       ],
+      examples: [],
       level: 3,
     },
     {
@@ -46,6 +47,7 @@ export const modernPhysics: Chapter = {
         '康普顿散射证明光子具有动量，是光粒子性的有力证据。',
         '光的波粒二象性：传播时体现波动性，相互作用时体现粒子性。',
       ],
+      examples: [],
       level: 2,
     },
     {
@@ -67,6 +69,7 @@ export const modernPhysics: Chapter = {
         '势阱中粒子的能量量子化，且存在零点能，不能静止。',
         '隧道效应是量子力学的重要推论，是扫描隧道显微镜的工作原理。',
       ],
+      examples: [],
       level: 3,
     },
     {
@@ -90,6 +93,7 @@ export const modernPhysics: Chapter = {
         '四个量子数（n、l、m、mₛ）决定电子的状态，泡利不相容原理限制电子排布。',
         '玻尔模型只能解释氢原子等单电子体系，多电子原子需用量子力学处理。',
       ],
+      examples: [],
       level: 2,
     },
   ],

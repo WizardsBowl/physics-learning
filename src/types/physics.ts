@@ -14,6 +14,26 @@ export interface Formula {
 }
 
 
+/** 例题难度等级：1 入门 · 2 基础 · 3 中等 · 4 较难 · 5 挑战 */
+export type ExampleDifficulty = 1 | 2 | 3 | 4 | 5
+
+/**
+ * 例题：题目、答案、解析与难度等级。
+ *
+ * 正文暂为纯文本，需要换行时在字符串里写 `\n`（渲染时保留换行）。
+ * 公式排版目前只覆盖 `KnowledgePoint.formulas`，例题中的公式待后续扩展。
+ */
+export interface Example {
+  /** 题干 */
+  question: string
+  /** 标准答案（结论式或数值均可） */
+  answer: string
+  /** 解题思路与关键步骤 */
+  explanation: string
+  /** 难度：1 最简单 · 5 最难 */
+  difficulty: ExampleDifficulty
+}
+
 /** 单个知识点 */
 export interface KnowledgePoint {
   /** 章节内唯一，用作页面锚点 */
@@ -25,6 +45,8 @@ export interface KnowledgePoint {
   formulas?: Formula[]
   /** 必须掌握的结论、适用条件与易错点 */
   keyPoints: string[]
+  /** 例题列表；尚未编写例题时写空数组 `[]`，卡片会自动隐藏该区块 */
+  examples: Example[]
   /** 难度：1 基础 · 2 进阶 · 3 拓展 */
   level: 1 | 2 | 3
 }

@@ -29,6 +29,7 @@ export const mechanics: Chapter = {
         '抛体运动可分解为水平匀速与竖直匀变速两个独立分运动。',
         '圆周运动中法向加速度只改变速度方向，切向加速度只改变速度大小。',
       ],
+      examples: [],
       level: 1,
     },
     {
@@ -46,6 +47,7 @@ export const mechanics: Chapter = {
         '最大静摩擦力略大于滑动摩擦力，但一般题目中可近似取等。',
         '用隔离体法列方程，注意加速度相同的物体可整体分析。',
       ],
+      examples: [],
       level: 1,
     },
     {
@@ -72,6 +74,7 @@ export const mechanics: Chapter = {
         '有心力场中角动量守恒，是开普勒第二定律的本质。',
         '变质量问题（如火箭）应使用动量定理的微分形式分析。',
       ],
+      examples: [],
       level: 2,
     },
     {
@@ -102,6 +105,7 @@ export const mechanics: Chapter = {
         '摩擦力做负功时机械能转化为内能，此时机械能不守恒。',
         '功能关系是解决变力做功问题的首选工具。',
       ],
+      examples: [],
       level: 2,
     },
     {
@@ -123,6 +127,7 @@ export const mechanics: Chapter = {
         '刚体定轴转动的角动量守恒：合外力矩为零时 Jω = 常量。',
         '刚体平面运动可分解为质心平动与绕质心转动。',
       ],
+      examples: [],
       level: 3,
     },
   ],

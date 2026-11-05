@@ -29,6 +29,7 @@ export const oscillations: Chapter = {
         '旋转矢量法把相位差转化为几何角度，求合振动的初相很方便。',
         '弹簧振子的周期只由 m、k 决定，与振幅无关。',
       ],
+      examples: [],
       level: 1,
     },
     {
@@ -49,6 +50,7 @@ export const oscillations: Chapter = {
         '受迫振动稳定后频率等于驱动力频率，与固有频率无关。',
         '共振时振幅最大，阻尼越小共振峰越尖锐。',
       ],
+      examples: [],
       level: 2,
     },
     {
@@ -69,6 +71,7 @@ export const oscillations: Chapter = {
         '波从一种介质进入另一种介质时频率不变，波速与波长改变。',
         '写波动方程时，沿 x 正向传播取 −x/u，反向取 +x/u。',
       ],
+      examples: [],
       level: 2,
     },
     {
@@ -95,6 +98,7 @@ export const oscillations: Chapter = {
         '驻波相邻波节（或波腹）间距为 λ/2，波节两侧相位相反。',
         '驻波不传播能量，各质点能量在波节与波腹间往复转换。',
       ],
+      examples: [],
       level: 3,
     },
     {
@@ -112,6 +116,7 @@ export const oscillations: Chapter = {
         '公式中的符号容易混淆，判断方法是“靠近则频率升高”。',
         '光的多普勒效应需用相对论公式，是红移、测速的物理基础。',
       ],
+      examples: [],
       level: 2,
     },
   ],

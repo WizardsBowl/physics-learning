@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import KaTeXFormula from './KatexFormula.vue'
-import type { KnowledgePoint } from '../types/physics'
+import type { ExampleDifficulty, KnowledgePoint } from '../types/physics'
 
 const props = defineProps<{
   point: KnowledgePoint
@@ -16,6 +16,17 @@ const levelLabels: Record<KnowledgePoint['level'], string> = {
 
 const levelText = computed(() => levelLabels[props.point.level])
 const orderText = computed(() => String(props.index + 1).padStart(2, '0'))
+
+/** 难度以 5 个圆点呈现，避免用颜色单独承载信息 */
+const difficultyScale = [1, 2, 3, 4, 5] as const
+
+const difficultyLabels: Record<ExampleDifficulty, string> = {
+  1: '入门',
+  2: '基础',
+  3: '中等',
+  4: '较难',
+  5: '挑战',
+}
 </script>
 
 <template>
@@ -42,6 +53,40 @@ const orderText = computed(() => String(props.index + 1).padStart(2, '0'))
       <h4 class="point-card__label">要点与易错点</h4>
       <ul class="key-list">
         <li v-for="key in point.keyPoints" :key="key">{{ key }}</li>
+      </ul>
+    </section>
+
+    <section v-if="point.examples.length" class="point-card__block">
+      <h4 class="point-card__label">典型例题</h4>
+      <ul class="example-list">
+        <li v-for="(example, exampleIndex) in point.examples" :key="exampleIndex">
+          <details class="example">
+            <summary class="example__summary">
+              <span class="example__no">例 {{ exampleIndex + 1 }}</span>
+              <span
+                class="example__difficulty"
+                role="img"
+                :aria-label="`难度 ${example.difficulty} / 5：${difficultyLabels[example.difficulty]}`"
+              >
+                <span
+                  v-for="step in difficultyScale"
+                  :key="step"
+                  class="example__dot"
+                  :class="{ 'is-on': step <= example.difficulty }"
+                />
+              </span>
+            </summary>
+            <div class="example__body">
+              <p class="example__question">{{ example.question }}</p>
+              <p class="example__line">
+                <span class="example__tag">答案</span>{{ example.answer }}
+              </p>
+              <p class="example__line">
+                <span class="example__tag">解析</span>{{ example.explanation }}
+              </p>
+            </div>
+          </details>
+        </li>
       </ul>
     </section>
   </article>
@@ -152,5 +197,101 @@ const orderText = computed(() => String(props.index + 1).padStart(2, '0'))
 
 .key-list li::marker {
   color: var(--accent, var(--brand));
+}
+
+.example-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.example {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-soft);
+}
+
+.example__summary {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.example__summary::-webkit-details-marker {
+  display: none;
+}
+
+.example__summary::after {
+  content: '▾';
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.72rem;
+  transition: transform 0.18s ease;
+}
+
+.example[open] .example__summary::after {
+  transform: rotate(180deg);
+}
+
+.example__summary:focus-visible {
+  outline: 2px solid var(--accent, var(--brand));
+  outline-offset: -2px;
+  border-radius: 8px;
+}
+
+.example__no {
+  color: var(--accent, var(--brand));
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.example__difficulty {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.example__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.example__dot.is-on {
+  background: var(--accent, var(--brand));
+}
+
+.example__body {
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.1rem;
+  padding: 0.6rem 0.85rem 0.75rem;
+  border-top: 1px dashed var(--border);
+}
+
+.example__question {
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.example__line {
+  color: var(--text-soft);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.example__tag {
+  margin-right: 0.4rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--accent, var(--brand)) 14%, transparent);
+  color: var(--accent, var(--brand));
+  font-size: 0.72rem;
+  font-weight: 600;
 }
 </style>

@@ -23,6 +23,7 @@ export const thermal: Chapter = {
         '三种速率大小关系：v_p < v̄ < v_rms（最概然、平均、方均根）。',
         '真实气体在高温低压下才近似为理想气体。',
       ],
+      examples: [],
       level: 1,
     },
     {
@@ -44,6 +45,7 @@ export const thermal: Chapter = {
         '绝热过程方程：pV^γ = 常量，γ = Cp/Cv。',
         '循环过程中 ΔU = 0，净功等于净吸热。',
       ],
+      examples: [],
       level: 2,
     },
     {
@@ -67,6 +69,7 @@ export const thermal: Chapter = {
         '任何热机效率都不可能达到或超过同温区间的卡诺效率。',
         '制冷机与热泵的本质是用外界做功把热量从低温传向高温。',
       ],
+      examples: [],
       level: 2,
     },
     {
@@ -84,6 +87,7 @@ export const thermal: Chapter = {
         '熵增原理给出了自发过程的方向与限度。',
         '热力学第二定律的统计意义：孤立系统总是从概率小的宏观态向概率大的宏观态演化。',
       ],
+      examples: [],
       level: 3,
     },
   ],

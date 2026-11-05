@@ -32,6 +32,7 @@ export const optics: Chapter = {
         '增透膜、增反膜利用薄膜干涉，膜厚量级为 λ/4 的奇数倍或偶数倍。',
         '等厚干涉（劈尖、牛顿环）条纹间距随膜厚变化，可用于检测表面平整度。',
       ],
+      examples: [],
       level: 2,
     },
     {
@@ -50,6 +51,7 @@ export const optics: Chapter = {
         '缺级现象：光栅主极大位置恰为单缝衍射暗纹时该级消失。',
         '衍射限制了光学仪器的分辨极限。',
       ],
+      examples: [],
       level: 3,
     },
     {
@@ -67,6 +69,7 @@ export const optics: Chapter = {
         '偏振片既是起偏器也是检偏器，两片正交时透射光强度为零。',
         '光的偏振说明光是横波，是电磁波横波性的直接证据。',
       ],
+      examples: [],
       level: 2,
     },
     {
@@ -87,6 +90,7 @@ export const optics: Chapter = {
         '光程与等光程原理是几何光学与波动光学的桥梁。',
         '光纤通信利用全反射把光限制在纤芯中传输。',
       ],
+      examples: [],
       level: 1,
     },
   ],

@@ -20,6 +20,11 @@ function matches(chapter: Chapter, query: string): boolean {
         latexToSearchText(formula.latex),
         formula.note ?? '',
       ]) ?? []),
+      ...point.examples.flatMap((example) => [
+        example.question,
+        example.answer,
+        example.explanation,
+      ]),
     ]),
   ]
   return haystack.some((item) => item.toLowerCase().includes(query))

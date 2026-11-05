@@ -32,6 +32,7 @@ export const electromagnetism: Chapter = {
         '导体静电平衡：内部场强为零、表面场强垂直于表面、整体是等势体。',
         '介质中的高斯定理使用电位移 D，∮D·dS = q自由。',
       ],
+      examples: [],
       level: 2,
     },
     {
@@ -59,6 +60,7 @@ export const electromagnetism: Chapter = {
         '运动电荷在匀强磁场中做圆周运动，半径 r = mv/(qB)。',
         '磁介质分为顺磁质、抗磁质与铁磁质，铁磁质存在磁滞现象。',
       ],
+      examples: [],
       level: 2,
     },
     {
@@ -80,6 +82,7 @@ export const electromagnetism: Chapter = {
         '涡旋电场的电场线闭合，是非保守场。',
         '自感系数 L 只由线圈自身几何结构与介质决定。',
       ],
+      examples: [],
       level: 3,
     },
     {
@@ -105,6 +108,7 @@ export const electromagnetism: Chapter = {
         '真空中电磁波速度 c = 1/√(ε₀μ₀) ≈ 3.0×10⁸ m/s。',
         '麦克斯韦方程组是经典电磁学的完整总结，也是狭义相对论的实验基础之一。',
       ],
+      examples: [],
       level: 3,
     },
   ],
