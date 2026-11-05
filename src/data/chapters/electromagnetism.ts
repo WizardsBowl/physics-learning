@@ -241,20 +241,20 @@ export const electromagnetism: Chapter = {
       examples: [
         {
           question:
+            '两块无限大平行带电金属板相距 $d = 2.0\\ \\mathrm{cm}$，板间电势差 $U = 100\\ \\mathrm{V}$，求板间的场强。',
+          answer: '$E = 5.0\\times10^{3}\\ \\mathrm{V/m}$，方向由高电势板指向低电势板。',
+          explanation:
+            '板间是匀强电场，$E = \\frac{U}{d} = \\frac{100}{2.0\\times10^{-2}} = 5.0\\times10^{3}\\ \\mathrm{V/m}$；由 $\\vec{E} = -\\nabla V$ 可知场强指向电势降低的方向。',
+          difficulty: 2,
+        },
+        {
+          question:
             '已知空间电势分布 $V = 3x^{2}y - 2yz^{2}$（SI 单位），求点 $P(1,2,-1)$ 处的场强。',
           answer:
             '$\\vec{E} = (-12\\vec{i}-\\vec{j}-8\\vec{k})\\ \\mathrm{V/m}$，大小约 $14.5\\ \\mathrm{V/m}$。',
           explanation:
             '$E_x = -\\frac{\\partial V}{\\partial x} = -6xy = -12$，$E_y = -\\frac{\\partial V}{\\partial y} = -(3x^{2}-2z^{2}) = -1$，$E_z = -\\frac{\\partial V}{\\partial z} = -(-4yz) = -8$，故 $\\vec{E} = -12\\vec{i}-\\vec{j}-8\\vec{k}\\ \\mathrm{V/m}$，$|\\vec{E}| = \\sqrt{12^{2}+1^{2}+8^{2}} \\approx 14.5\\ \\mathrm{V/m}$。',
           difficulty: 3,
-        },
-        {
-          question:
-            '两块无限大平行带电金属板相距 $d = 2.0\\ \\mathrm{cm}$，板间电势差 $U = 100\\ \\mathrm{V}$，求板间的场强。',
-          answer: '$E = 5.0\\times10^{3}\\ \\mathrm{V/m}$，方向由高电势板指向低电势板。',
-          explanation:
-            '板间是匀强电场，$E = \\frac{U}{d} = \\frac{100}{2.0\\times10^{-2}} = 5.0\\times10^{3}\\ \\mathrm{V/m}$；由 $\\vec{E} = -\\nabla V$ 可知场强指向电势降低的方向。',
-          difficulty: 2,
         },
       ],
       level: 2,
@@ -288,20 +288,20 @@ export const electromagnetism: Chapter = {
         },
         {
           question:
+            '半径分别为 $R_1 = 0.02\\ \\mathrm{m}$、$R_2 = 0.05\\ \\mathrm{m}$ 的两个金属球用细导线相连并带电，求两球表面电荷面密度之比和表面场强之比。',
+          answer: '$\\sigma_1:\\sigma_2 = 2.5:1$，$E_1:E_2 = 2.5:1$（小球表面电荷更密、场强更强）。',
+          explanation:
+            '两球相连后等电势，$\\frac{q_1}{4\\pi\\varepsilon_0R_1} = \\frac{q_2}{4\\pi\\varepsilon_0R_2}$ 即 $\\frac{q_1}{R_1} = \\frac{q_2}{R_2}$；又 $\\sigma = \\frac{q}{4\\pi R^{2}}$，得 $\\sigma_1R_1 = \\sigma_2R_2$，故 $\\frac{\\sigma_1}{\\sigma_2} = \\frac{R_2}{R_1} = 2.5$。表面场强 $E = \\frac{\\sigma}{\\varepsilon_0}$，比值相同。',
+          difficulty: 2,
+        },
+        {
+          question:
             '两同心金属球壳，内球壳半径 $R_1 = 0.05\\ \\mathrm{m}$、带电荷 $q = +1.0\\times10^{-8}\\ \\mathrm{C}$；外球壳内、外半径分别为 $R_2 = 0.10\\ \\mathrm{m}$、$R_3 = 0.15\\ \\mathrm{m}$，不带电且与外界绝缘。求外球壳内、外表面的电荷及各区域的场强。',
           answer:
             '内表面 $-1.0\\times10^{-8}\\ \\mathrm{C}$，外表面 $+1.0\\times10^{-8}\\ \\mathrm{C}$；$r<R_1$ 时 $E = 0$；$R_1<r<R_2$ 与 $r>R_3$ 时 $E = \\frac{q}{4\\pi\\varepsilon_0r^{2}}$；$R_2<r<R_3$ 时 $E = 0$。',
           explanation:
             '静电平衡时导体内部场强为零，外球壳内表面须感应 $-q$ 以抵消腔内电荷的场；外球壳原本不带电，由电荷守恒外表面为 $+q$。对半径 $r$ 的同心球面用高斯定理，即可得到上述各区域的场强。',
           difficulty: 3,
-        },
-        {
-          question:
-            '半径分别为 $R_1 = 0.02\\ \\mathrm{m}$、$R_2 = 0.05\\ \\mathrm{m}$ 的两个金属球用细导线相连并带电，求两球表面电荷面密度之比和表面场强之比。',
-          answer: '$\\sigma_1:\\sigma_2 = 2.5:1$，$E_1:E_2 = 2.5:1$（小球表面电荷更密、场强更强）。',
-          explanation:
-            '两球相连后等电势，$\\frac{q_1}{4\\pi\\varepsilon_0R_1} = \\frac{q_2}{4\\pi\\varepsilon_0R_2}$ 即 $\\frac{q_1}{R_1} = \\frac{q_2}{R_2}$；又 $\\sigma = \\frac{q}{4\\pi R^{2}}$，得 $\\sigma_1R_1 = \\sigma_2R_2$，故 $\\frac{\\sigma_1}{\\sigma_2} = \\frac{R_2}{R_1} = 2.5$。表面场强 $E = \\frac{\\sigma}{\\varepsilon_0}$，比值相同。',
-          difficulty: 2,
         },
       ],
       level: 2,
@@ -332,21 +332,21 @@ export const electromagnetism: Chapter = {
       examples: [
         {
           question:
-            '平行板电容器极板间充满相对介电常数 $\\varepsilon_r = 4.0$ 的均匀介质，极板上自由电荷面密度 $\\sigma_0 = 1.0\\times10^{-6}\\ \\mathrm{C/m^{2}}$。求介质中的电位移 $D$、场强 $E$ 和极化强度 $P$。',
-          answer:
-            '$D = 1.0\\times10^{-6}\\ \\mathrm{C/m^{2}}$，$E \\approx 2.8\\times10^{4}\\ \\mathrm{V/m}$，$P \\approx 7.5\\times10^{-7}\\ \\mathrm{C/m^{2}}$。',
-          explanation:
-            '由 $D$ 的高斯定理得 $D = \\sigma_0 = 1.0\\times10^{-6}\\ \\mathrm{C/m^{2}}$；$E = \\frac{D}{\\varepsilon_0\\varepsilon_r} = \\frac{1.0\\times10^{-6}}{8.85\\times10^{-12}\\times4.0} \\approx 2.8\\times10^{4}\\ \\mathrm{V/m}$；$P = D-\\varepsilon_0E = \\varepsilon_0(\\varepsilon_r-1)E \\approx 7.5\\times10^{-7}\\ \\mathrm{C/m^{2}}$。',
-          difficulty: 3,
-        },
-        {
-          question:
             '两个点电荷在真空中相距 $r$ 时相互作用力为 $F_0$。若把它们浸入相对介电常数 $\\varepsilon_r = 2.5$ 的均匀介质中且距离不变，求它们之间的作用力，并指出介质表面极化电荷的符号。',
           answer:
             '$F = \\frac{F_0}{2.5} = 0.40F_0$；靠近正电荷的介质表面带负极化电荷，靠近负电荷的表面带正极化电荷。',
           explanation:
             '介质中的库仑力 $F = \\frac{1}{4\\pi\\varepsilon_0\\varepsilon_r}\\frac{|q_1q_2|}{r^{2}} = \\frac{F_0}{\\varepsilon_r}$。极化电荷产生的附加场总是削弱介质中的总场，因此极化电荷与产生场的自由电荷异号。',
           difficulty: 2,
+        },
+        {
+          question:
+            '平行板电容器极板间充满相对介电常数 $\\varepsilon_r = 4.0$ 的均匀介质，极板上自由电荷面密度 $\\sigma_0 = 1.0\\times10^{-6}\\ \\mathrm{C/m^{2}}$。求介质中的电位移 $D$、场强 $E$ 和极化强度 $P$。',
+          answer:
+            '$D = 1.0\\times10^{-6}\\ \\mathrm{C/m^{2}}$，$E \\approx 2.8\\times10^{4}\\ \\mathrm{V/m}$，$P \\approx 7.5\\times10^{-7}\\ \\mathrm{C/m^{2}}$。',
+          explanation:
+            '由 $D$ 的高斯定理得 $D = \\sigma_0 = 1.0\\times10^{-6}\\ \\mathrm{C/m^{2}}$；$E = \\frac{D}{\\varepsilon_0\\varepsilon_r} = \\frac{1.0\\times10^{-6}}{8.85\\times10^{-12}\\times4.0} \\approx 2.8\\times10^{4}\\ \\mathrm{V/m}$；$P = D-\\varepsilon_0E = \\varepsilon_0(\\varepsilon_r-1)E \\approx 7.5\\times10^{-7}\\ \\mathrm{C/m^{2}}$。',
+          difficulty: 3,
         },
       ],
       level: 2,
@@ -526,19 +526,19 @@ export const electromagnetism: Chapter = {
       examples: [
         {
           question:
-            '直径 $d = 1.0\\ \\mathrm{mm}$ 的铜导线中通过电流 $I = 2.0\\ \\mathrm{A}$，铜的自由电子数密度 $n = 8.5\\times10^{28}\\ \\mathrm{m^{-3}}$，电子电荷量 $e = 1.6\\times10^{-19}\\ \\mathrm{C}$。求电子的漂移速度。',
-          answer: '$v_d \\approx 1.9\\times10^{-4}\\ \\mathrm{m/s}$。',
-          explanation:
-            '截面积 $S = \\frac{\\pi d^{2}}{4} \\approx 7.85\\times10^{-7}\\ \\mathrm{m^{2}}$，电流密度 $j = \\frac{I}{S} \\approx 2.55\\times10^{6}\\ \\mathrm{A/m^{2}}$，由 $j = nev_d$ 得 $v_d = \\frac{j}{ne} \\approx 1.9\\times10^{-4}\\ \\mathrm{m/s}$，远小于电子热运动速率。',
-          difficulty: 3,
-        },
-        {
-          question:
             '长 $l = 1.0\\ \\mathrm{m}$、直径 $d = 1.0\\ \\mathrm{mm}$ 的铜导线，电阻率 $\\rho = 1.7\\times10^{-8}\\ \\Omega\\cdot\\mathrm{m}$，求其电阻。',
           answer: '$R \\approx 2.2\\times10^{-2}\\ \\Omega$。',
           explanation:
             '$R = \\rho\\frac{l}{S} = 1.7\\times10^{-8}\\times\\frac{1.0}{7.85\\times10^{-7}} \\approx 2.2\\times10^{-2}\\ \\Omega$。由欧姆定律的微分形式 $\\vec{j} = \\sigma\\vec{E}$ 还可以求出导线内的场强 $E = \\frac{j}{\\sigma} \\approx 4.3\\times10^{-2}\\ \\mathrm{V/m}$。',
           difficulty: 1,
+        },
+        {
+          question:
+            '直径 $d = 1.0\\ \\mathrm{mm}$ 的铜导线中通过电流 $I = 2.0\\ \\mathrm{A}$，铜的自由电子数密度 $n = 8.5\\times10^{28}\\ \\mathrm{m^{-3}}$，电子电荷量 $e = 1.6\\times10^{-19}\\ \\mathrm{C}$。求电子的漂移速度。',
+          answer: '$v_d \\approx 1.9\\times10^{-4}\\ \\mathrm{m/s}$。',
+          explanation:
+            '截面积 $S = \\frac{\\pi d^{2}}{4} \\approx 7.85\\times10^{-7}\\ \\mathrm{m^{2}}$，电流密度 $j = \\frac{I}{S} \\approx 2.55\\times10^{6}\\ \\mathrm{A/m^{2}}$，由 $j = nev_d$ 得 $v_d = \\frac{j}{ne} \\approx 1.9\\times10^{-4}\\ \\mathrm{m/s}$，远小于电子热运动速率。',
+          difficulty: 3,
         },
       ],
       level: 1,
@@ -718,19 +718,19 @@ export const electromagnetism: Chapter = {
         },
         {
           question:
-            '边长 $a = 0.10\\ \\mathrm{m}$ 的正方形线圈共 $N = 100$ 匝，载流 $I = 2.0\\ \\mathrm{A}$，置于 $B = 0.50\\ \\mathrm{T}$ 的匀强磁场中。求线圈所受的最大磁力矩。',
-          answer: '$M_{\\max} = 1.0\\ \\mathrm{N\\cdot m}$。',
-          explanation:
-            '磁矩 $m = NIS = 100\\times2.0\\times(0.10)^{2} = 2.0\\ \\mathrm{A\\cdot m^{2}}$，磁力矩 $M = mB\\sin\\theta$，当线圈平面与磁场平行（磁矩与磁场垂直）时最大：$M_{\\max} = mB = 2.0\\times0.50 = 1.0\\ \\mathrm{N\\cdot m}$。',
-          difficulty: 3,
-        },
-        {
-          question:
             '两根平行的长直导线相距 $d = 0.10\\ \\mathrm{m}$，载有同向电流 $I_1 = I_2 = 10\\ \\mathrm{A}$。求单位长度导线受到的磁力，并说明是吸引还是排斥。',
           answer: '$\\frac{F}{l} = 2.0\\times10^{-4}\\ \\mathrm{N/m}$，相互吸引。',
           explanation:
             '每根导线处于另一根导线产生的磁场 $B = \\frac{\\mu_0I}{2\\pi d}$ 中，故 $\\frac{F}{l} = \\frac{\\mu_0I_1I_2}{2\\pi d} = \\frac{4\\pi\\times10^{-7}\\times100}{2\\pi\\times0.10} = 2.0\\times10^{-4}\\ \\mathrm{N/m}$。同向电流相互吸引，反向电流相互排斥。',
           difficulty: 2,
+        },
+        {
+          question:
+            '边长 $a = 0.10\\ \\mathrm{m}$ 的正方形线圈共 $N = 100$ 匝，载流 $I = 2.0\\ \\mathrm{A}$，置于 $B = 0.50\\ \\mathrm{T}$ 的匀强磁场中。求线圈所受的最大磁力矩。',
+          answer: '$M_{\\max} = 1.0\\ \\mathrm{N\\cdot m}$。',
+          explanation:
+            '磁矩 $m = NIS = 100\\times2.0\\times(0.10)^{2} = 2.0\\ \\mathrm{A\\cdot m^{2}}$，磁力矩 $M = mB\\sin\\theta$，当线圈平面与磁场平行（磁矩与磁场垂直）时最大：$M_{\\max} = mB = 2.0\\times0.50 = 1.0\\ \\mathrm{N\\cdot m}$。',
+          difficulty: 3,
         },
         {
           question:
@@ -896,19 +896,19 @@ export const electromagnetism: Chapter = {
       examples: [
         {
           question:
-            '平行板电容器极板面积 $S = 0.010\\ \\mathrm{m^{2}}$，板间为真空。若板间电场的变化率 $\\frac{dE}{dt} = 1.0\\times10^{12}\\ \\mathrm{V/(m\\cdot s)}$，求板间的位移电流。',
-          answer: '$I_d \\approx 8.9\\times10^{-2}\\ \\mathrm{A}$。',
-          explanation:
-            '位移电流 $I_d = \\frac{d\\Phi_D}{dt} = \\varepsilon_0\\frac{d\\Phi_E}{dt} = \\varepsilon_0S\\frac{dE}{dt} = 8.85\\times10^{-12}\\times0.010\\times1.0\\times10^{12} \\approx 8.9\\times10^{-2}\\ \\mathrm{A}$。位移电流的本质是变化的电场，它和传导电流一样能在周围激发磁场。',
-          difficulty: 2,
-        },
-        {
-          question:
             '用真空介电常数 $\\varepsilon_0 = 8.85\\times10^{-12}\\ \\mathrm{F/m}$ 与真空磁导率 $\\mu_0 = 4\\pi\\times10^{-7}\\ \\mathrm{H/m}$ 计算真空中电磁波的速度。',
           answer: '$c \\approx 3.0\\times10^{8}\\ \\mathrm{m/s}$。',
           explanation:
             '$c = \\frac{1}{\\sqrt{\\varepsilon_0\\mu_0}} = \\frac{1}{\\sqrt{8.85\\times10^{-12}\\times4\\pi\\times10^{-7}}} \\approx 3.0\\times10^{8}\\ \\mathrm{m/s}$，与实验测得的光速一致，说明光就是电磁波。',
           difficulty: 1,
+        },
+        {
+          question:
+            '平行板电容器极板面积 $S = 0.010\\ \\mathrm{m^{2}}$，板间为真空。若板间电场的变化率 $\\frac{dE}{dt} = 1.0\\times10^{12}\\ \\mathrm{V/(m\\cdot s)}$，求板间的位移电流。',
+          answer: '$I_d \\approx 8.9\\times10^{-2}\\ \\mathrm{A}$。',
+          explanation:
+            '位移电流 $I_d = \\frac{d\\Phi_D}{dt} = \\varepsilon_0\\frac{d\\Phi_E}{dt} = \\varepsilon_0S\\frac{dE}{dt} = 8.85\\times10^{-12}\\times0.010\\times1.0\\times10^{12} \\approx 8.9\\times10^{-2}\\ \\mathrm{A}$。位移电流的本质是变化的电场，它和传导电流一样能在周围激发磁场。',
+          difficulty: 2,
         },
       ],
       level: 3,
